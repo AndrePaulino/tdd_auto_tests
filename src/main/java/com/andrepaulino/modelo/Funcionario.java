@@ -1,8 +1,12 @@
 package com.andrepaulino.modelo;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 
+import lombok.Data;
+
+@Data
 public class Funcionario {
 
 	private String nome;
@@ -15,16 +19,7 @@ public class Funcionario {
 		this.salario = salario;
 	}
 
-	public String getNome() {
-		return nome;
+	public void setSalario(BigDecimal value) {
+		this.salario = value.setScale(2, RoundingMode.HALF_UP);
 	}
-
-	public LocalDate getDataAdmissao() {
-		return dataAdmissao;
-	}
-
-	public BigDecimal getSalario() {
-		return salario;
-	}
-
 }

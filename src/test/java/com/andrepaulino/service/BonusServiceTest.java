@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.andrepaulino.modelo.Funcionario;
 
-public class BonusServiceTests {
+public class BonusServiceTest {
 
     @Test
     public void bonusShould0ForHighSalary() {
