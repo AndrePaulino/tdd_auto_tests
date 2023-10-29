@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import com.andrepaulino.modelo.Funcionario;
@@ -15,9 +16,7 @@ public class BonusServiceTest {
     public void bonusShould0ForHighSalary() {
         BonusService bonusService = new BonusService();
         Funcionario funci = new Funcionario("Vapo", LocalDate.now(), BigDecimal.valueOf(10010));
-        var bonus = bonusService.calcularBonus(funci);
-
-        assertThat(bonus, equalTo(new BigDecimal("0.00")));
+        assertThrows(IllegalArgumentException.class, () -> bonusService.calcularBonus(funci));
     }
 
     @Test
